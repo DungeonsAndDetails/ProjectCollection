@@ -2,6 +2,9 @@
   "name": "project1-backend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "22.x"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

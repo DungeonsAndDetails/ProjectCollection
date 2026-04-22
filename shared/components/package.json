@@ -1,0 +1,17 @@
+{
+  "name": "@projectcollection/component-lib",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "echo \"Add a build step (rollup/tsc) for production\""
+  },
+  "peerDependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  }
+}

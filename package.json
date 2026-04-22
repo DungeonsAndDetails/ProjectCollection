@@ -1,0 +1,30 @@
+{
+  "name": "projectcollection",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/Portal/frontend",
+    "apps/Portal/backend",
+    "apps/Project1/frontend",
+    "apps/Project1/backend",
+    "apps/Project2/frontend",
+    "apps/Project2/backend",
+    "shared/components"
+  ],
+  "engines": {
+    "node": "22.x",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "dev:portal:frontend": "npm run dev --workspace apps/Portal/frontend",
+    "dev:portal:backend": "npm run dev --workspace apps/Portal/backend",
+    "dev:project1:frontend": "npm run dev --workspace apps/Project1/frontend",
+    "dev:project1:backend": "npm run dev --workspace apps/Project1/backend",
+    "dev:project2:frontend": "npm run dev --workspace apps/Project2/frontend",
+    "dev:project2:backend": "npm run dev --workspace apps/Project2/backend",
+    "dev:all": "concurrently -n portal-web,portal-api,p1-web,p1-api,p2-web,p2-api -c yellow,white,blue,green,magenta,cyan \"npm run dev:portal:frontend\" \"npm run dev:portal:backend\" \"npm run dev:project1:frontend\" \"npm run dev:project1:backend\" \"npm run dev:project2:frontend\" \"npm run dev:project2:backend\""
+  },
+  "devDependencies": {
+    "concurrently": "9.1.2"
+  }
+}
