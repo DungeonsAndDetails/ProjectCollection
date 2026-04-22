@@ -23,12 +23,16 @@ Recommended versions
 - Node.js: 22.16.0 (current Node 22 LTS in this workspace)
 - npm: 11+
 - React: 19.1.0
+- Tailwind CSS: 4.x
 
 Quick start
 
 1. Install everything once from the repo root with `npm install`.
 2. Run every frontend and backend together with `npm run dev:all`.
 3. Or use the bash helper: `./scripts/dev-all.sh`.
+4. Lint all apps with `npm run lint`.
+5. Format the repo with `npm run format`.
+6. Check shared tooling drift with `npm run tooling:check`.
 
 Ports
 
@@ -44,6 +48,19 @@ Micro frontend shell
 - `apps/Portal/frontend` is the host shell and primary entrypoint.
 - It owns shell-level concerns such as login UX, theming, and navigation into each child app.
 - Child apps remain independently runnable under `apps/Project1` and `apps/Project2`.
+
+Shared frontend tooling
+
+- Tailwind is available in every frontend app under `apps/*/frontend`.
+- A single shared ESLint config lives at `eslint.config.mjs` in the repo root.
+- A single shared Prettier config lives at `prettier.config.cjs` in the repo root.
+- Each app can run `npm run lint` or `npm run format` locally and it will resolve the shared root config automatically.
+
+Documentation
+
+- Architecture and code structure guidelines live in `docs/architecture-guidelines.md`.
+- Area-specific agent profiles live in `docs/agents/`.
+- Reusable editor prompt files can live in the VS Code user prompts folder at `c:/Users/Micha/AppData/Roaming/Code/User/prompts`.
 
 Environment
 

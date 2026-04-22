@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   color-scheme: light;
   font-family: "Segoe UI", "Helvetica Neue", sans-serif;
@@ -247,6 +249,146 @@ input {
   gap: 16px;
 }
 
+.workspace-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.workspace-tab {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(48, 76, 94, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.theme-slate .workspace-tab {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(215, 227, 238, 0.14);
+}
+
+.workspace-tab.active {
+  border-color: rgba(31, 134, 151, 0.7);
+  background: rgba(31, 134, 151, 0.12);
+}
+
+.workspace-tab:hover {
+  transform: translateY(-1px);
+}
+
+.workspace-tab-name {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.workspace-tab-copy {
+  color: #476272;
+  line-height: 1.5;
+}
+
+.theme-slate .workspace-tab-copy {
+  color: #c3d4df;
+}
+
+.hosted-workspaces {
+  display: grid;
+  gap: 18px;
+}
+
+.workspace-panel {
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.44);
+}
+
+.theme-slate .workspace-panel {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.workspace-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.workspace-panel-header h3,
+.embedded-app-header h4 {
+  margin: 6px 0 0;
+}
+
+.compact-header {
+  margin-bottom: 16px;
+}
+
+.workspace-frame-shell,
+.embedded-app-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(48, 76, 94, 0.12);
+  background: rgba(244, 248, 250, 0.86);
+}
+
+.theme-slate .workspace-frame-shell,
+.theme-slate .embedded-app-card {
+  border-color: rgba(215, 227, 238, 0.12);
+  background: rgba(9, 17, 24, 0.86);
+}
+
+.workspace-frame {
+  width: 100%;
+  min-height: 480px;
+  border: 0;
+  background: #fff;
+}
+
+.secondary-workspace-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.embedded-app-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.embedded-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(48, 76, 94, 0.1);
+}
+
+.theme-slate .embedded-app-header {
+  border-bottom-color: rgba(215, 227, 238, 0.08);
+}
+
+.embedded-app-header a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.embedded-app-frame {
+  width: 100%;
+  min-height: 260px;
+  border: 0;
+  background: #fff;
+}
+
 .app-card {
   padding: 20px;
   border-radius: 22px;
@@ -285,6 +427,16 @@ input {
   .portal-layout {
     grid-template-columns: 1fr;
     padding: 18px;
+  }
+
+  .workspace-nav,
+  .secondary-workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .hero-panel,

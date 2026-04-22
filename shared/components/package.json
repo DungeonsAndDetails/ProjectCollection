@@ -8,7 +8,9 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "scripts": {
-    "build": "echo \"Add a build step (rollup/tsc) for production\""
+    "build": "echo \"Add a build step (rollup/tsc) for production\"",
+    "lint": "eslint . --ext .js,.jsx",
+    "format": "prettier . --write"
   },
   "peerDependencies": {
     "react": "19.1.0",
