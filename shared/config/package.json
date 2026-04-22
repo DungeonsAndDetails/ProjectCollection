@@ -1,0 +1,15 @@
+{
+  "name": "@projectcollection/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint": "./eslint/index.mjs",
+    "./prettier": "./prettier/index.cjs",
+    "./tailwind/tokens.css": "./tailwind/tokens.css"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .js,.cjs,.mjs",
+    "format": "prettier . --write"
+  }
+}

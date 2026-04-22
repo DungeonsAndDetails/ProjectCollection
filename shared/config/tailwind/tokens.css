@@ -1,0 +1,10 @@
+:root {
+  --pc-color-brand-50: #f4fbfb;
+  --pc-color-brand-300: #77cad4;
+  --pc-color-brand-500: #1f8697;
+  --pc-color-brand-700: #155a67;
+  --pc-color-accent-400: #f1b35c;
+  --pc-color-accent-500: #e9a44e;
+  --pc-radius-card: 1.5rem;
+  --pc-radius-pill: 999px;
+}

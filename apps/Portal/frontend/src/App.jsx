@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { microfrontends } from "./microfrontends";
 
 const themes = {
@@ -19,6 +19,7 @@ export default function App() {
   const [email, setEmail] = useState("owner@housing.local");
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [activeWorkspace, setActiveWorkspace] = useState(microfrontends[0].key);
 
   function handleSignIn(event) {
     event.preventDefault();
@@ -28,6 +29,9 @@ export default function App() {
   }
 
   const theme = themes[activeTheme];
+  const activeApp =
+    microfrontends.find((app) => app.key === activeWorkspace) ??
+    microfrontends[0];
 
   return (
     <div className={`portal-shell ${theme.shellClass}`}>
@@ -122,23 +126,88 @@ export default function App() {
           <div className="card app-grid-card">
             <div className="card-header">
               <span className="tag">Micro frontends</span>
-              <h2>Connected app surfaces</h2>
+              <h2>Hosted app navigation</h2>
             </div>
-            <div className="app-grid">
+            <div className="workspace-nav">
               {microfrontends.map((app) => (
-                <article key={app.key} className="app-card">
-                  <h3>{app.name}</h3>
-                  <p>{app.description}</p>
+                <button
+                  key={app.key}
+                  type="button"
+                  className={
+                    app.key === activeWorkspace
+                      ? "workspace-tab active"
+                      : "workspace-tab"
+                  }
+                  onClick={() => setActiveWorkspace(app.key)}
+                >
+                  <span className="workspace-tab-name">{app.name}</span>
+                  <span className="workspace-tab-copy">{app.description}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="hosted-workspaces">
+              <article className="workspace-panel primary-panel">
+                <div className="workspace-panel-header">
+                  <div>
+                    <span className="tag">Primary area</span>
+                    <h3>{activeApp.name}</h3>
+                  </div>
                   <div className="app-links">
-                    <a href={app.frontendUrl} target="_blank" rel="noreferrer">
-                      Open frontend
+                    <a
+                      href={activeApp.frontendUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Open standalone
                     </a>
-                    <a href={app.backendUrl} target="_blank" rel="noreferrer">
-                      Check backend
+                    <a
+                      href={activeApp.backendUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      API health
                     </a>
                   </div>
-                </article>
-              ))}
+                </div>
+                <div className="workspace-frame-shell">
+                  <iframe
+                    className="workspace-frame"
+                    src={activeApp.frontendUrl}
+                    title={`${activeApp.name} workspace`}
+                  />
+                </div>
+              </article>
+
+              <article className="workspace-panel secondary-panel">
+                <div className="workspace-panel-header compact-header">
+                  <div>
+                    <span className="tag">Secondary area</span>
+                    <h3>Always-on app rail</h3>
+                  </div>
+                </div>
+                <div className="secondary-workspace-grid">
+                  {microfrontends.map((app) => (
+                    <section key={app.key} className="embedded-app-card">
+                      <div className="embedded-app-header">
+                        <h4>{app.name}</h4>
+                        <a
+                          href={app.frontendUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Expand
+                        </a>
+                      </div>
+                      <iframe
+                        className="embedded-app-frame"
+                        src={app.frontendUrl}
+                        title={`${app.name} embedded preview`}
+                      />
+                    </section>
+                  ))}
+                </div>
+              </article>
             </div>
           </div>
         </section>
