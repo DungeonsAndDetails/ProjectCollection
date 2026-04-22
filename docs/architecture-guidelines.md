@@ -70,11 +70,11 @@ The long-term goal is not just to have shared components, but to build a reusabl
 Build the shared library in layers:
 
 1. Primitives
-  Buttons, inputs, labels, cards, stacks, text, badges.
+   Buttons, inputs, labels, cards, stacks, text, badges.
 2. Composed patterns
-  Search bars, filter panels, dialogs, tables, navigation shells.
+   Search bars, filter panels, dialogs, tables, navigation shells.
 3. Product-ready templates
-  Reusable domain-neutral screens and layout shells.
+   Reusable domain-neutral screens and layout shells.
 
 Rules for growing the library:
 

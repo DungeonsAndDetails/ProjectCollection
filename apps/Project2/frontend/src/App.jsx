@@ -2,7 +2,7 @@ export default function App() {
   return (
     <main className="min-h-screen bg-stone-100 px-6 py-16 text-slate-900">
       <section className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/70">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-amber-700">
+        <p className="text-sm font-semibold tracking-[0.3em] text-amber-700 uppercase">
           Project 2
         </p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950">
