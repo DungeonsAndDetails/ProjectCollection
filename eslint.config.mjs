@@ -1,3 +1,3 @@
-import config from "./shared/config/eslint/index.mjs";
+import config from './shared/config/eslint/index.mjs';
 
 export default config;

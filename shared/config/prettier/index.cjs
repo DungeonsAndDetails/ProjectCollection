@@ -1,6 +1,12 @@
 module.exports = {
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  printWidth: 100,
+  proseWrap: 'preserve',
   semi: true,
-  singleQuote: false,
-  trailingComma: "all",
-  plugins: ["prettier-plugin-tailwindcss"],
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false,
+  plugins: ['prettier-plugin-tailwindcss'],
 };

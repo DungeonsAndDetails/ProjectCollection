@@ -54,6 +54,7 @@ Current workspace shape:
 - Keep environment-specific values in `.env` files, never hardcoded secrets.
 - Prefer named exports for utilities and hooks; default exports are acceptable for React page components when that is already the local pattern.
 - Keep files focused. One file should usually have one primary responsibility.
+- Keep discoverable Copilot instruction and agent files in `.github`, and use each area's `APP_CONTEXT.md` as the local pairing point for the files that represent that area.
 
 ## Component Library Strategy
 

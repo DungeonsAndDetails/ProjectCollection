@@ -56,11 +56,36 @@ Shared frontend tooling
 - A single shared Prettier config lives at `prettier.config.cjs` in the repo root.
 - Each app can run `npm run lint` or `npm run format` locally and it will resolve the shared root config automatically.
 
+MongoDB MCP
+
+- Workspace MCP settings live in `.vscode/settings.json` for this repo.
+- This repo enables MongoDB MCP auto-start and keeps MCP in read-only mode at the workspace level.
+- MongoDB MCP uses the active connection from the MongoDB VS Code extension.
+- Atlas admin tools require user-level service account credentials in `%APPDATA%/Code/User/settings.json`, not workspace settings.
+- Recommended user-level keys:
+  - `mdb.mcp.apiClientId`
+  - `mdb.mcp.apiClientSecret`
+- Recommended Atlas setup:
+  - Create a MongoDB Atlas service account.
+  - Grant only the minimum roles needed.
+  - Add your current IP to the Atlas API access list.
+  - Paste the generated client ID and client secret into your user settings.
+- After updating credentials, reload VS Code or restart the MongoDB MCP server.
+
 Documentation
 
 - Architecture and code structure guidelines live in `docs/architecture-guidelines.md`.
+- Architecture index and cascade overview live in `ARCHITECTURE.md`.
 - Area-specific agent profiles live in `docs/agents/`.
 - Reusable editor prompt files can live in the VS Code user prompts folder at `c:/Users/Micha/AppData/Roaming/Code/User/prompts`.
+
+Repo-native agent customization
+
+- Global workspace instructions live in `.github/copilot-instructions.md`.
+- Cascading file instructions live in `.github/instructions/`.
+- Optional custom area agents live in `.github/agents/`.
+- Each major area has a local `APP_CONTEXT.md` and `TODO.md` file for goals, structure, decisions, and upcoming work.
+- Each `APP_CONTEXT.md` also serves as the local pairing point for the instruction and agent that represent that area.
 
 Environment
 

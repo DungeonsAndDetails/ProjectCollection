@@ -1,37 +1,35 @@
-import { useState } from "react";
-import { microfrontends } from "./microfrontends";
+import { useState } from 'react';
+import { microfrontends } from './microfrontends';
 
 const themes = {
   daylight: {
-    label: "Daylight",
-    shellClass: "theme-daylight",
-    eyebrow: "Operational clarity",
+    label: 'Daylight',
+    shellClass: 'theme-daylight',
+    eyebrow: 'Operational clarity',
   },
   slate: {
-    label: "Slate",
-    shellClass: "theme-slate",
-    eyebrow: "Focused command surface",
+    label: 'Slate',
+    shellClass: 'theme-slate',
+    eyebrow: 'Focused command surface',
   },
 };
 
-export default function App() {
-  const [activeTheme, setActiveTheme] = useState("daylight");
-  const [email, setEmail] = useState("owner@housing.local");
-  const [password, setPassword] = useState("");
+const App = () => {
+  const [activeTheme, setActiveTheme] = useState('daylight');
+  const [email, setEmail] = useState('owner@housing.local');
+  const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeWorkspace, setActiveWorkspace] = useState(microfrontends[0].key);
 
-  function handleSignIn(event) {
+  const handleSignIn = (event) => {
     event.preventDefault();
     if (email.trim() && password.trim()) {
       setIsAuthenticated(true);
     }
-  }
+  };
 
   const theme = themes[activeTheme];
-  const activeApp =
-    microfrontends.find((app) => app.key === activeWorkspace) ??
-    microfrontends[0];
+  const activeApp = microfrontends.find((app) => app.key === activeWorkspace) ?? microfrontends[0];
 
   return (
     <div className={`portal-shell ${theme.shellClass}`}>
@@ -41,8 +39,8 @@ export default function App() {
           <p className="eyebrow">{theme.eyebrow}</p>
           <h1>Housing Portal Shell</h1>
           <p className="lead">
-            This primary app owns the entry experience, theme controls, and
-            navigation into independently deployed product surfaces.
+            This primary app owns the entry experience, theme controls, and navigation into
+            independently deployed product surfaces.
           </p>
 
           <div className="status-strip">
@@ -56,18 +54,12 @@ export default function App() {
             </div>
           </div>
 
-          <div
-            className="theme-switcher"
-            role="group"
-            aria-label="Theme switcher"
-          >
+          <div className="theme-switcher" role="group" aria-label="Theme switcher">
             {Object.entries(themes).map(([key, value]) => (
               <button
                 key={key}
                 type="button"
-                className={
-                  key === activeTheme ? "theme-chip active" : "theme-chip"
-                }
+                className={key === activeTheme ? 'theme-chip active' : 'theme-chip'}
                 onClick={() => setActiveTheme(key)}
               >
                 {value.label}
@@ -80,7 +72,7 @@ export default function App() {
           <div className="card login-card">
             <div className="card-header">
               <span className="tag">Primary access</span>
-              <h2>{isAuthenticated ? "Session active" : "Portal sign-in"}</h2>
+              <h2>{isAuthenticated ? 'Session active' : 'Portal sign-in'}</h2>
             </div>
 
             {isAuthenticated ? (
@@ -133,11 +125,7 @@ export default function App() {
                 <button
                   key={app.key}
                   type="button"
-                  className={
-                    app.key === activeWorkspace
-                      ? "workspace-tab active"
-                      : "workspace-tab"
-                  }
+                  className={app.key === activeWorkspace ? 'workspace-tab active' : 'workspace-tab'}
                   onClick={() => setActiveWorkspace(app.key)}
                 >
                   <span className="workspace-tab-name">{app.name}</span>
@@ -154,18 +142,10 @@ export default function App() {
                     <h3>{activeApp.name}</h3>
                   </div>
                   <div className="app-links">
-                    <a
-                      href={activeApp.frontendUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href={activeApp.frontendUrl} target="_blank" rel="noreferrer">
                       Open standalone
                     </a>
-                    <a
-                      href={activeApp.backendUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href={activeApp.backendUrl} target="_blank" rel="noreferrer">
                       API health
                     </a>
                   </div>
@@ -191,11 +171,7 @@ export default function App() {
                     <section key={app.key} className="embedded-app-card">
                       <div className="embedded-app-header">
                         <h4>{app.name}</h4>
-                        <a
-                          href={app.frontendUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href={app.frontendUrl} target="_blank" rel="noreferrer">
                           Expand
                         </a>
                       </div>
@@ -214,4 +190,6 @@ export default function App() {
       </main>
     </div>
   );
-}
+};
+
+export default App;

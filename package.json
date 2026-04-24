@@ -24,8 +24,8 @@
     "dev:project2:frontend": "npm run dev --workspace apps/Project2/frontend",
     "dev:project2:backend": "npm run dev --workspace apps/Project2/backend",
     "dev:all": "concurrently -n portal-web,portal-api,p1-web,p1-api,p2-web,p2-api -c yellow,white,blue,green,magenta,cyan \"npm run dev:portal:frontend\" \"npm run dev:portal:backend\" \"npm run dev:project1:frontend\" \"npm run dev:project1:backend\" \"npm run dev:project2:frontend\" \"npm run dev:project2:backend\"",
-    "lint": "eslint apps shared --ext .js,.jsx",
-    "lint:fix": "eslint apps shared --ext .js,.jsx --fix",
+    "lint": "eslint \"apps/*/frontend/src/**/*.{js,jsx}\" \"apps/*/frontend/*.mjs\" \"apps/*/backend/**/*.js\" \"shared/components/src/**/*.{js,jsx}\" \"shared/config/**/*.{cjs,mjs}\" eslint.config.mjs prettier.config.cjs",
+    "lint:fix": "eslint \"apps/*/frontend/src/**/*.{js,jsx}\" \"apps/*/frontend/*.mjs\" \"apps/*/backend/**/*.js\" \"shared/components/src/**/*.{js,jsx}\" \"shared/config/**/*.{cjs,mjs}\" eslint.config.mjs prettier.config.cjs --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "tooling:check": "npm outdated eslint @eslint/js eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh prettier prettier-plugin-tailwindcss tailwindcss @tailwindcss/vite vite @vitejs/plugin-react || exit 0"

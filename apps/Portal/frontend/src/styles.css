@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   color-scheme: light;
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
 * {
@@ -33,31 +33,15 @@ input {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(250, 196, 89, 0.45),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(15, 133, 177, 0.35),
-      transparent 26%
-    ),
+    radial-gradient(circle at top left, rgba(250, 196, 89, 0.45), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(15, 133, 177, 0.35), transparent 26%),
     linear-gradient(135deg, #f5efe2 0%, #dfe9ec 48%, #f8fbfc 100%);
 }
 
 .theme-slate .portal-backdrop {
   background:
-    radial-gradient(
-      circle at top left,
-      rgba(255, 171, 92, 0.18),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at bottom right,
-      rgba(72, 194, 215, 0.18),
-      transparent 26%
-    ),
+    radial-gradient(circle at top left, rgba(255, 171, 92, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(72, 194, 215, 0.18), transparent 26%),
     linear-gradient(135deg, #131b24 0%, #1f2e3a 48%, #304556 100%);
 }
 

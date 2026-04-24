@@ -1,27 +1,33 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const dotenv = require('dotenv')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
 
-dotenv.config()
+const propertyRoutes = require('./src/routes/properties');
 
-const app = express()
-app.use(cors())
-app.use(express.json())
+dotenv.config();
 
-const PORT = process.env.PORT || 5000
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/project1'
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err))
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/project1';
+
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', project: 'project1-backend' })
-})
+  res.json({ status: 'ok', project: 'project1-backend' });
+});
+
+app.use('/api/properties', propertyRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`)
-})
+  console.log(`Server listening on port ${PORT}`);
+});

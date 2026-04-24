@@ -1,27 +1,43 @@
-import js from "@eslint/js";
-import globals from "globals";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 const unusedVarsRule = [
-  "warn",
+  'warn',
   {
-    argsIgnorePattern: "^_",
-    varsIgnorePattern: "^_",
+    argsIgnorePattern: '^_',
+    varsIgnorePattern: '^_',
   },
 ];
 
+const commonRules = {
+  curly: ['error', 'all'],
+  eqeqeq: ['error', 'always'],
+  'no-var': 'error',
+  'object-shorthand': ['warn', 'always'],
+  'prefer-const': [
+    'warn',
+    {
+      destructuring: 'all',
+    },
+  ],
+};
+
 const config = [
   {
-    ignores: ["**/dist/**", "**/node_modules/**", "**/coverage/**"],
+    ignores: ['**/dist/**', '**/node_modules/**', '**/coverage/**'],
+    linterOptions: {
+      reportUnusedDisableDirectives: 'warn',
+    },
   },
   js.configs.recommended,
   {
-    files: ["apps/*/frontend/**/*.{js,jsx}", "shared/components/**/*.{js,jsx}"],
+    files: ['apps/*/frontend/**/*.{js,jsx}', 'shared/components/**/*.{js,jsx}'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -33,36 +49,70 @@ const config = [
     },
     plugins: {
       react,
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     settings: {
       react: {
-        version: "detect",
+        version: 'detect',
       },
     },
     rules: {
-      "react/jsx-uses-vars": "error",
-      "react/react-in-jsx-scope": "off",
-      ...reactHooks.configs.recommended.rules,
-      "no-unused-vars": unusedVarsRule,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
+      'react/function-component-definition': [
+        'error',
+        {
+          namedComponents: 'arrow-function',
+          unnamedComponents: 'arrow-function',
+        },
       ],
+      'react/jsx-uses-vars': 'error',
+      'react/react-in-jsx-scope': 'off',
+      ...reactHooks.configs.recommended.rules,
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
   {
-    files: ["apps/*/backend/**/*.js"],
+    files: ['apps/*/backend/**/*.js'],
     languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "commonjs",
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
       globals: {
         ...globals.node,
       },
     },
     rules: {
-      "no-unused-vars": unusedVarsRule,
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
+    },
+  },
+  {
+    files: ['shared/config/**/*.mjs', 'eslint.config.mjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
+    },
+  },
+  {
+    files: ['shared/config/**/*.cjs', 'prettier.config.cjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
     },
   },
 ];
