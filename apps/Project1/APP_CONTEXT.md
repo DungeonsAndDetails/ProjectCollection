@@ -4,12 +4,6 @@
 
 Project1 is the first domain application in the workspace. It is currently the most concrete business app and now includes the initial `Property` CRUD backend example.
 
-## Copilot Pairing
-
-- Owning instruction: `.github/instructions/project1.instructions.md`
-- Owning agent: `.github/agents/project1.agent.md`
-- Keep this file aligned with that instruction and agent pair for Project1-specific context.
-
 ## Current Scope
 
 - Independent frontend scaffold.
@@ -33,6 +27,12 @@ Project1 is the first domain application in the workspace. It is currently the m
   - `hooks/`
   - `lib/`
 
+## Frontend Direction
+
+- Project1 frontend should optimize first for readability and dynamic expandability while the domain takes shape.
+- Reusable UI patterns discovered here should stay local until they are clearly stable enough for `shared/components`.
+- Data-driven and richer theme-driven behavior should be layered in after the base workflows and component boundaries are easy to read and evolve.
+
 ## Backend Structure
 
 - Current implementation lives under `apps/Project1/backend`.
@@ -55,6 +55,7 @@ Project1 is the first domain application in the workspace. It is currently the m
 
 - `Property` is the first concrete MongoDB-backed entity.
 - Backend should move toward the documented route/controller/service split.
+- Project1 frontend is allowed to drive shared-component discovery, but only through proven reuse from real feature work.
 
 ## Open Questions
 

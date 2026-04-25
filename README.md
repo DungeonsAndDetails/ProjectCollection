@@ -55,6 +55,7 @@ Shared frontend tooling
 - A single shared ESLint config lives at `eslint.config.mjs` in the repo root.
 - A single shared Prettier config lives at `prettier.config.cjs` in the repo root.
 - Each app can run `npm run lint` or `npm run format` locally and it will resolve the shared root config automatically.
+- Shared UI primitives in `shared/components` use flat package-root folders such as `shared/components/Button/` with `index.js` and `style.scss`.
 
 MongoDB MCP
 
@@ -84,8 +85,8 @@ Repo-native agent customization
 - Global workspace instructions live in `.github/copilot-instructions.md`.
 - Cascading file instructions live in `.github/instructions/`.
 - Optional custom area agents live in `.github/agents/`.
-- Each major area has a local `APP_CONTEXT.md` and `TODO.md` file for goals, structure, decisions, and upcoming work.
-- Each `APP_CONTEXT.md` also serves as the local pairing point for the instruction and agent that represent that area.
+- Each major area has a local `COPILOT_MAP.md` file that points to the instruction and agent for that area.
+- Each major area also has a local `APP_CONTEXT.md` file for goals, structure, decisions, and local direction.
 
 Environment
 

@@ -1,7 +1,7 @@
 ---
-description: 'Use when working on shared/components. Covers global component library structure, component API design, accessibility, and promotion rules for reusable UI.'
-name: 'Shared Components Overlay'
-applyTo: 'shared/components/**'
+description: "Use when working on shared/components. Covers global component library structure, component API design, accessibility, and promotion rules for reusable UI."
+name: "Shared Components Overlay"
+applyTo: "shared/components/**"
 ---
 
 # Shared Components Overlay
@@ -14,7 +14,6 @@ applyTo: 'shared/components/**'
 ## Read First
 
 - `shared/components/APP_CONTEXT.md`
-- `shared/components/TODO.md`
 
 ## Validation
 

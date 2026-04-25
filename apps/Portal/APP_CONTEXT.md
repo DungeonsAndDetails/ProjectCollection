@@ -4,12 +4,6 @@
 
 Portal is the primary shell app for the workspace. It owns auth entry flow, theming, top-level navigation, and the hosted micro-frontend experience for child apps.
 
-## Copilot Pairing
-
-- Owning instruction: `.github/instructions/portal.instructions.md`
-- Owning agent: `.github/agents/portal.agent.md`
-- Keep this file aligned with that instruction and agent pair for Portal-specific context.
-
 ## Current Scope
 
 - Shell landing experience.
@@ -33,6 +27,12 @@ Portal is the primary shell app for the workspace. It owns auth entry flow, them
   - `features/navigation/`
   - `components/`
   - `lib/`
+
+## Frontend Direction
+
+- Portal frontend work should stay readable and easy to extend before adding heavier configuration layers.
+- Shell UI patterns should mature locally first, then move into `shared/components` only when reuse is proven across apps.
+- Theme-driven and database-driven shell behavior should be added later on top of a stable, readable shell architecture.
 
 ## Backend Structure
 
@@ -58,6 +58,7 @@ Portal is the primary shell app for the workspace. It owns auth entry flow, them
 
 - Hosted-app behavior currently favors shell-first composition.
 - Shared tooling and styling standards are centralized.
+- Portal should demonstrate clean shell patterns that can support future product, test, and exploratory frontends without structural churn.
 
 ## Open Questions
 

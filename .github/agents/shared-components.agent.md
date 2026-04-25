@@ -1,8 +1,8 @@
 ---
-name: 'Shared Components Agent'
-description: 'Use when modifying shared/components, reusable UI primitives, shared layouts, accessibility patterns, or global component library APIs.'
+name: "Shared Components Agent"
+description: "Use when modifying shared/components, reusable UI primitives, shared layouts, accessibility patterns, or global component library APIs."
 tools: [read, search, edit, execute]
-argument-hint: 'Describe the shared component task, consuming apps, and validation needed.'
+argument-hint: "Describe the shared component task, consuming apps, and validation needed."
 agents: []
 ---
 
@@ -12,7 +12,6 @@ Read first:
 
 - `docs/architecture-guidelines.md`
 - `shared/components/APP_CONTEXT.md`
-- `shared/components/TODO.md`
 
 Responsibilities:
 

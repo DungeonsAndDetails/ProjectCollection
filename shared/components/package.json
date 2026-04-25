@@ -5,8 +5,11 @@
   "engines": {
     "node": "22.x"
   },
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "scripts": {
     "build": "echo \"Add a build step (rollup/tsc) for production\"",
     "lint": "eslint . --ext .js,.jsx",

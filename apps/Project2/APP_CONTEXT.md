@@ -4,12 +4,6 @@
 
 Project2 is the second domain application in the workspace. It remains intentionally light while its specific domain direction is still being defined.
 
-## Copilot Pairing
-
-- Owning instruction: `.github/instructions/project2.instructions.md`
-- Owning agent: `.github/agents/project2.agent.md`
-- Keep this file aligned with that instruction and agent pair for Project2-specific context.
-
 ## Current Scope
 
 - Independent frontend scaffold.
@@ -30,6 +24,12 @@ Project2 is the second domain application in the workspace. It remains intention
   - `hooks/`
   - `lib/`
 
+## Frontend Direction
+
+- Project2 should remain a flexible exploratory frontend with readable code and easy expansion as its domain becomes clearer.
+- Experimental UI patterns can start here, but only proven reusable patterns should graduate into `shared/components`.
+- Database-driven and stronger theme-driven experiences are later concerns and should build on a simple, adaptable frontend base.
+
 ## Backend Structure
 
 - Current implementation lives under `apps/Project2/backend`.
@@ -49,6 +49,7 @@ Project2 is the second domain application in the workspace. It remains intention
 ## Active Decisions
 
 - Project2 remains a scaffold pending domain clarification.
+- Project2 can be used as an exploratory surface for frontend ideas so long as those ideas do not bypass readability or clear ownership.
 
 ## Open Questions
 

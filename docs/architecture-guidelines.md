@@ -54,7 +54,7 @@ Current workspace shape:
 - Keep environment-specific values in `.env` files, never hardcoded secrets.
 - Prefer named exports for utilities and hooks; default exports are acceptable for React page components when that is already the local pattern.
 - Keep files focused. One file should usually have one primary responsibility.
-- Keep discoverable Copilot instruction and agent files in `.github`, and use each area's `APP_CONTEXT.md` as the local pairing point for the files that represent that area.
+- Keep discoverable Copilot instruction and agent files in `.github`, and use each area's `COPILOT_MAP.md` as the local pairing point for the files that represent that area.
 
 ## Component Library Strategy
 
@@ -82,9 +82,14 @@ Rules for growing the library:
 - Start local when a pattern is still unstable.
 - Promote to `shared/components` only after the pattern proves reusable.
 - Do not move code into `shared/components` just to reduce lines in an app.
+- Let project, test, and exploratory app work drive what gets promoted into the shared library.
 - Prefer accessibility, API clarity, and composability over visual cleverness.
 - Shared components should be documented once they become core building blocks.
 - Avoid baking one app's domain language into shared component names.
+- Keep the package layout flat at the `shared/components` root.
+- Prefer one folder per shared primitive, for example `shared/components/Button/`.
+- Use `index.js` for the component entry and `style.scss` for the component stylesheet inside each primitive folder.
+- Re-export the package API from `shared/components/index.js`.
 
 ## Micro Frontend Guidance
 
@@ -154,6 +159,14 @@ Recommended starting agents for this repo:
 - Tailwind CSS.
 - Shared ESLint and Prettier configuration.
 
+### Frontend Direction
+
+- Build the frontend surfaces through real project work, including product, test, and exploratory apps.
+- Use that work to discover reusable UI patterns, then promote those patterns into `shared/components` once reuse is proven.
+- Optimize first for readability, maintainability, and dynamic expandability rather than early data-driven abstraction.
+- Treat database-driven behavior and richer theme-driven systems as a later layer that should sit on top of a readable base architecture.
+- Keep early frontend decisions simple enough that database-backed configuration and stronger theming can be introduced without structural rework.
+
 ### Recommended Frontend Folder Shape
 
 Inside each `apps/*/frontend/src`:
@@ -195,6 +208,7 @@ src/
 ### React Best Practices
 
 - Prefer functional components and hooks.
+- Favor code that is easy to read and easy to extend before introducing heavier architectural indirection.
 - Keep components small and purpose-specific.
 - Move non-UI logic into hooks or service helpers when components become too dense.
 - Avoid prop drilling across many levels; use context only for true cross-tree concerns.
@@ -238,6 +252,7 @@ Avoid:
 - Use semantic component names, not styling-driven filenames.
 - Avoid massive unreadable class strings in deeply complex components.
 - Keep design tokens consistent across apps.
+- Do not over-design theme systems early; grow toward stronger theme-driven experiences after the base UI patterns and data flows are stable.
 - If themes grow, centralize shared tokens in a dedicated shared design package or CSS variable layer.
 - Prefer shared utility patterns and component abstractions once the same Tailwind class groups repeat across apps.
 

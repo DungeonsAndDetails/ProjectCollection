@@ -13,8 +13,8 @@ Use this file as the project-wide baseline for all tasks in this repository.
 
 - Read `docs/architecture-guidelines.md` for the detailed architecture baseline.
 - Use `.github/instructions/*.instructions.md` for area-specific and file-type-specific guidance.
-- Treat each area's `APP_CONTEXT.md` as the local anchor that sits alongside the code and points to its owning instruction and agent.
-- Use each area's `APP_CONTEXT.md` and `TODO.md` for current state, goals, and near-term work.
+- Treat each area's `COPILOT_MAP.md` as the local anchor that sits alongside the code and points to its owning instruction and agent.
+- Use each area's `APP_CONTEXT.md` for current state, goals, and local direction.
 
 ## Build And Validation
 

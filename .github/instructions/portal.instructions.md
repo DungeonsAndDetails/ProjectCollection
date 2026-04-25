@@ -1,7 +1,7 @@
 ---
-description: 'Use when working on apps/Portal. Covers portal shell structure, architecture, app hosting, auth entry flow, navigation, and theme ownership.'
-name: 'Portal Overlay'
-applyTo: 'apps/Portal/**'
+description: "Use when working on apps/Portal. Covers portal shell structure, architecture, app hosting, auth entry flow, navigation, and theme ownership."
+name: "Portal Overlay"
+applyTo: "apps/Portal/**"
 ---
 
 # Portal Overlay
@@ -14,7 +14,6 @@ applyTo: 'apps/Portal/**'
 ## Read First
 
 - `apps/Portal/APP_CONTEXT.md`
-- `apps/Portal/TODO.md`
 
 ## Validation
 

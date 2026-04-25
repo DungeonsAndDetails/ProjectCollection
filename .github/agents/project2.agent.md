@@ -1,8 +1,8 @@
 ---
-name: 'Project2 Agent'
-description: 'Use when modifying apps/Project2 frontend or backend, Project2 routes, models, services, pages, domain workflows, or project-specific architecture.'
+name: "Project2 Agent"
+description: "Use when modifying apps/Project2 frontend or backend, Project2 routes, models, services, pages, domain workflows, or project-specific architecture."
 tools: [read, search, edit, execute]
-argument-hint: 'Describe the Project2 task, touched layer, and required validation.'
+argument-hint: "Describe the Project2 task, touched layer, and required validation."
 agents: []
 ---
 
@@ -12,7 +12,6 @@ Read first:
 
 - `docs/architecture-guidelines.md`
 - `apps/Project2/APP_CONTEXT.md`
-- `apps/Project2/TODO.md`
 
 Responsibilities:
 

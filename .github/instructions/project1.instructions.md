@@ -1,7 +1,7 @@
 ---
-description: 'Use when working on apps/Project1. Covers Project1 domain ownership, local architecture, feature organization, and integration boundaries.'
-name: 'Project1 Overlay'
-applyTo: 'apps/Project1/**'
+description: "Use when working on apps/Project1. Covers Project1 domain ownership, local architecture, feature organization, and integration boundaries."
+name: "Project1 Overlay"
+applyTo: "apps/Project1/**"
 ---
 
 # Project1 Overlay
@@ -14,7 +14,6 @@ applyTo: 'apps/Project1/**'
 ## Read First
 
 - `apps/Project1/APP_CONTEXT.md`
-- `apps/Project1/TODO.md`
 
 ## Validation
 

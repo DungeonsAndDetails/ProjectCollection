@@ -19,10 +19,10 @@ This file is the top-level map for how ProjectCollection keeps architecture, age
 4. Optional area-specific custom agents
    - `.github/agents/*.agent.md`
 5. Per-area living context
+   - `COPILOT_MAP.md`
    - `APP_CONTEXT.md`
-   - `TODO.md`
 
-Each area's `APP_CONTEXT.md` is the local pairing point for the instruction and agent that govern that area.
+Each area's `COPILOT_MAP.md` is the local pairing point for the instruction and agent that govern that area.
 
 ## Why This Structure Exists
 
@@ -30,7 +30,7 @@ Each area's `APP_CONTEXT.md` is the local pairing point for the instruction and 
 - File-type base rules apply consistently across frontends and backends.
 - Area overlays capture what is unique to Portal, Project1, Project2, shared components, and shared config.
 - App state, goals, open questions, and upcoming work stay in living context files instead of bloating always-on instructions.
-- The actual discoverable instruction and agent files stay in `.github`, while their pairing is made explicit next to each area through `APP_CONTEXT.md`.
+- The actual discoverable instruction and agent files stay in `.github`, while their pairing is made explicit next to each area through `COPILOT_MAP.md`.
 
 ## Current Areas
 
@@ -44,6 +44,13 @@ Each area's `APP_CONTEXT.md` is the local pairing point for the instruction and 
 
 - Read the global architecture guide first.
 - Let the `.github` cascade apply the correct file-level instructions.
-- Use the matching `APP_CONTEXT.md` and `TODO.md` before making significant area changes.
-- Treat `APP_CONTEXT.md` as the area-local index for the owning instruction and agent.
+- Use the local `COPILOT_MAP.md` first to find the owning instruction and agent.
+- Use the matching `APP_CONTEXT.md` before making significant area changes.
 - Use custom agents when you want an explicit area-specific operating mode.
+
+## Shared Components Shape
+
+- Keep `shared/components` flat at the package root rather than nesting primitives under `src/components`.
+- Give each shared primitive its own folder, such as `shared/components/Button/`.
+- Use `index.js` as the component entry file and `style.scss` as the component stylesheet inside each primitive folder.
+- Re-export the public surface from `shared/components/index.js`.

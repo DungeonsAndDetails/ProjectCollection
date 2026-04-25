@@ -4,12 +4,6 @@
 
 `shared/config` is the canonical source of truth for repo-wide tooling, linting, formatting, and future design tokens.
 
-## Copilot Pairing
-
-- Owning instruction: `.github/instructions/shared-config.instructions.md`
-- Owning agent: `.github/agents/shared-config.agent.md`
-- Keep this file aligned with that instruction and agent pair for shared tooling context.
-
 ## Current Scope
 
 - Shared ESLint configuration.

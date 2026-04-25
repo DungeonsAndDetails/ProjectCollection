@@ -1,8 +1,8 @@
 ---
-name: 'Shared Config Agent'
-description: 'Use when modifying shared/config, ESLint, Prettier, Tailwind tokens, Vite config, root wrappers, or repo-wide tooling behavior.'
+name: "Shared Config Agent"
+description: "Use when modifying shared/config, ESLint, Prettier, Tailwind tokens, Vite config, root wrappers, or repo-wide tooling behavior."
 tools: [read, search, edit, execute]
-argument-hint: 'Describe the config or tooling change, affected consumers, and validation needed.'
+argument-hint: "Describe the config or tooling change, affected consumers, and validation needed."
 agents: []
 ---
 
@@ -12,7 +12,6 @@ Read first:
 
 - `docs/architecture-guidelines.md`
 - `shared/config/APP_CONTEXT.md`
-- `shared/config/TODO.md`
 
 Responsibilities:
 

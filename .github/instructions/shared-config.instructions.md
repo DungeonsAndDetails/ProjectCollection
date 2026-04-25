@@ -1,7 +1,7 @@
 ---
-description: 'Use when working on shared/config or root lint, format, Vite, Tailwind, and tooling wrapper files. Covers repo-wide config ownership and upgrade discipline.'
-name: 'Shared Config Overlay'
-applyTo: 'shared/config/**, eslint.config.mjs, prettier.config.cjs, .vscode/settings.json'
+description: "Use when working on shared/config or root lint, format, Vite, Tailwind, and tooling wrapper files. Covers repo-wide config ownership and upgrade discipline."
+name: "Shared Config Overlay"
+applyTo: "shared/config/**, eslint.config.mjs, prettier.config.cjs, .vscode/settings.json"
 ---
 
 # Shared Config Overlay
@@ -14,7 +14,6 @@ applyTo: 'shared/config/**, eslint.config.mjs, prettier.config.cjs, .vscode/sett
 ## Read First
 
 - `shared/config/APP_CONTEXT.md`
-- `shared/config/TODO.md`
 
 ## Validation
 

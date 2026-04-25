@@ -4,12 +4,6 @@
 
 `shared/components` is the global reusable component library for ProjectCollection.
 
-## Copilot Pairing
-
-- Owning instruction: `.github/instructions/shared-components.instructions.md`
-- Owning agent: `.github/agents/shared-components.agent.md`
-- Keep this file aligned with that instruction and agent pair for shared component context.
-
 ## Current Scope
 
 - Early-stage shared UI package.
@@ -21,6 +15,8 @@
 - Start with primitives.
 - Grow into composed generic patterns only after reuse is proven.
 - Stay domain-neutral.
+- Let active project, test, and exploratory frontend work reveal which components deserve promotion.
+- Prefer readable, easily extensible component APIs before building richer data-driven or theme-driven abstractions.
 
 ## Core Categories
 
@@ -40,6 +36,10 @@
 ## Active Decisions
 
 - Accessibility and composability are higher priority than rapid component volume.
+- Shared components should live in flat package-root folders such as `shared/components/Button/`.
+- Shared component styles should use SCSS entry files such as `style.scss` instead of plain CSS files.
+- The shared library should be shaped by proven reuse from app work, not by speculative front-end abstraction.
+- Database-driven configuration and deeper theme-driven behavior are later concerns and should build on a readable base component system.
 
 ## Open Questions
 

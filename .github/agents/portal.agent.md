@@ -1,8 +1,8 @@
 ---
-name: 'Portal Agent'
-description: 'Use when modifying apps/Portal frontend or backend, shell navigation, auth entry flow, theming, app hosting, or portal architecture.'
+name: "Portal Agent"
+description: "Use when modifying apps/Portal frontend or backend, shell navigation, auth entry flow, theming, app hosting, or portal architecture."
 tools: [read, search, edit, execute]
-argument-hint: 'Describe the Portal task, affected area, and required validation.'
+argument-hint: "Describe the Portal task, affected area, and required validation."
 agents: []
 ---
 
@@ -12,7 +12,6 @@ Read first:
 
 - `docs/architecture-guidelines.md`
 - `apps/Portal/APP_CONTEXT.md`
-- `apps/Portal/TODO.md`
 
 Responsibilities:
 
