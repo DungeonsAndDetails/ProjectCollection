@@ -1,0 +1,27 @@
+.pc-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pc-badge--neutral {
+  background: #e0e0e0;
+  color: #333333;
+}
+
+.pc-badge--success {
+  background: #d4f4dd;
+  color: #1e6b3a;
+}
+
+.pc-badge--warning {
+  background: #fdecc8;
+  color: #8a5a00;
+}
+
+.pc-badge--danger {
+  background: #fbdada;
+  color: #97201f;
+}

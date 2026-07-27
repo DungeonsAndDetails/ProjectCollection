@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', project: 'project2-backend' });
+  res.json({ data: { status: 'ok', project: 'project2-backend' } });
 });
 
 app.listen(PORT, () => {

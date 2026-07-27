@@ -1,0 +1,9 @@
+.pc-link {
+  color: #1f8697;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+
+  &:hover {
+    color: #155a67;
+  }
+}

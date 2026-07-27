@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const AppPreview = ({ activeApp }) => {
   return (
     <section className="card app-preview">
@@ -28,6 +30,14 @@ const AppPreview = ({ activeApp }) => {
       </div>
     </section>
   );
+};
+
+AppPreview.propTypes = {
+  activeApp: PropTypes.shape({
+    backendUrl: PropTypes.string,
+    frontendUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default AppPreview;

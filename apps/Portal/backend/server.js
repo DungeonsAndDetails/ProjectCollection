@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
 
 dotenv.config();
 
@@ -11,14 +11,16 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'portal-backend' });
+  res.json({ data: { status: 'ok', service: 'portal-backend' } });
 });
 
 app.get('/api/session', (req, res) => {
   res.json({
-    isAuthenticated: false,
-    role: 'owner',
-    primaryTheme: 'daylight',
+    data: {
+      isAuthenticated: false,
+      role: 'owner',
+      primaryTheme: 'daylight',
+    },
   });
 });
 

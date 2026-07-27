@@ -1,0 +1,31 @@
+.pc-spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 3px solid #d8d8d8;
+  border-top-color: #1f8697;
+  animation: pc-spinner-spin 0.7s linear infinite;
+}
+
+.pc-spinner--sm {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+.pc-spinner--md {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.pc-spinner--lg {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+@keyframes pc-spinner-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,47 @@
+.pc-alert {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+}
+
+.pc-alert-body {
+  margin: 0;
+}
+
+.pc-alert-dismiss {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: inherit;
+  padding: 0;
+}
+
+.pc-alert--info {
+  background: #e3f0fb;
+  border-color: #b6d7f2;
+  color: #17466f;
+}
+
+.pc-alert--success {
+  background: #d4f4dd;
+  border-color: #a9e5bb;
+  color: #1e6b3a;
+}
+
+.pc-alert--warning {
+  background: #fdecc8;
+  border-color: #f8d484;
+  color: #8a5a00;
+}
+
+.pc-alert--danger {
+  background: #fbdada;
+  border-color: #f3b0af;
+  color: #97201f;
+}

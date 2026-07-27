@@ -36,7 +36,8 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   color: var(--pc-theme-text);
 }
 
@@ -50,7 +51,7 @@ input {
 }
 
 .portal-shell {
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   color: var(--pc-theme-text);
@@ -59,7 +60,10 @@ input {
 .portal-frame {
   position: relative;
   z-index: 1;
+  height: 100%;
   padding-top: 124px;
+  display: flex;
+  flex-direction: column;
 }
 
 .shell-header {
@@ -188,11 +192,11 @@ input {
 .portal-layout {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  min-height: 100vh;
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 16px 24px 24px;
 }
 
 .card {
@@ -234,8 +238,12 @@ input {
 }
 
 .app-preview {
-  display: grid;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  gap: 16px;
+  padding: 20px;
 }
 
 .app-preview-header {
@@ -243,9 +251,13 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  flex: none;
 }
 
 .app-preview-frame-shell {
+  flex: 1;
+  min-height: 0;
+  display: flex;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--pc-theme-border);
@@ -253,8 +265,9 @@ input {
 }
 
 .app-preview-frame {
+  flex: 1;
   width: 100%;
-  min-height: 420px;
+  min-height: 0;
   border: 0;
   background: var(--pc-theme-iframe-background);
 }

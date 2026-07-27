@@ -22,6 +22,17 @@ shared/components/
 	index.js
 ```
 
+Components
+
+- `Button` — clickable action trigger
+- `Input` — single-line text field
+- `Card` — bordered content container with an optional title
+- `Badge` — small inline status label (`neutral` / `success` / `warning` / `danger`)
+- `Alert` — dismissible status message banner
+- `Spinner` — loading indicator
+- `Container` — max-width page layout wrapper
+- `Link` — styled anchor (auto-sets `rel="noreferrer"` for `target="_blank"`)
+
 How to use
 
 - Import locally: `import { Button } from '../../shared/components'` during development.

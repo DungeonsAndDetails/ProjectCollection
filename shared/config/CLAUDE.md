@@ -1,0 +1,1 @@
+Read `README.md` in this directory before touching anything here. This package is the canonical home for ESLint/Prettier/Tailwind-token config — root config files delegate to it. Don't create disconnected lint/format rules in an individual app without a documented exception noted in this package's README.
