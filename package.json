@@ -17,13 +17,18 @@
     "npm": ">=11"
   },
   "scripts": {
+    "dev:clear-ports": "bash ./scripts/clear-dev-ports.sh",
     "dev:portal:frontend": "npm run dev --workspace apps/Portal/frontend",
     "dev:portal:backend": "npm run dev --workspace apps/Portal/backend",
     "dev:project1:frontend": "npm run dev --workspace apps/Project1/frontend",
     "dev:project1:backend": "npm run dev --workspace apps/Project1/backend",
     "dev:project2:frontend": "npm run dev --workspace apps/Project2/frontend",
     "dev:project2:backend": "npm run dev --workspace apps/Project2/backend",
-    "dev:all": "concurrently -n portal-web,portal-api,p1-web,p1-api,p2-web,p2-api -c yellow,white,blue,green,magenta,cyan \"npm run dev:portal:frontend\" \"npm run dev:portal:backend\" \"npm run dev:project1:frontend\" \"npm run dev:project1:backend\" \"npm run dev:project2:frontend\" \"npm run dev:project2:backend\"",
+    "dev:components": "npm run storybook --workspace shared/components",
+    "dev:all": "npm run dev:clear-ports && concurrently -n portal-web,portal-api,p1-web,p1-api,p2-web,p2-api,components -c yellow,white,blue,green,magenta,cyan,red \"npm run dev:portal:frontend\" \"npm run dev:portal:backend\" \"npm run dev:project1:frontend\" \"npm run dev:project1:backend\" \"npm run dev:project2:frontend\" \"npm run dev:project2:backend\" \"npm run dev:components\"",
+    "test:components": "npm run test --workspace shared/components",
+    "test:components:watch": "npm run test:watch --workspace shared/components",
+    "build:components": "npm run build-storybook --workspace shared/components",
     "lint": "eslint \"apps/*/frontend/src/**/*.{js,jsx}\" \"apps/*/frontend/*.mjs\" \"apps/*/backend/**/*.js\" \"shared/components/**/*.{js,jsx}\" \"shared/config/**/*.{cjs,mjs}\" eslint.config.mjs prettier.config.cjs",
     "lint:fix": "eslint \"apps/*/frontend/src/**/*.{js,jsx}\" \"apps/*/frontend/*.mjs\" \"apps/*/backend/**/*.js\" \"shared/components/**/*.{js,jsx}\" \"shared/config/**/*.{cjs,mjs}\" eslint.config.mjs prettier.config.cjs --fix",
     "format": "prettier . --write",
@@ -33,7 +38,7 @@
   "devDependencies": {
     "@eslint/js": "^9.25.1",
     "@tailwindcss/vite": "^4.1.4",
-    "@vitejs/plugin-react": "^4.4.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "concurrently": "9.1.2",
     "eslint": "^9.25.1",
     "eslint-plugin-react": "^7.37.5",

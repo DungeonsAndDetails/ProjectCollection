@@ -6,7 +6,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5172 --strictPort",
+    "dev": "vite --host 0.0.0.0 --port 5172 --strictPort --open",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx}\" \"*.mjs\"",

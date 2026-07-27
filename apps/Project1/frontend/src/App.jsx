@@ -5,8 +5,7 @@ const App = () => {
         <p className="text-sm font-semibold tracking-[0.3em] text-cyan-300 uppercase">Project 1</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white">Project1 Frontend</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-          This workspace now has Tailwind available by default and inherits the shared root ESLint
-          and Prettier configuration.
+          This workspace is a blank slate, reserved for future scope within the Portal.
         </p>
       </section>
     </main>
