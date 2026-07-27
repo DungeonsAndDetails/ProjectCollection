@@ -6,17 +6,18 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "vite --host 0.0.0.0 --port 5172 --strictPort",
+    "dev": "vite --host 0.0.0.0 --port 5172 --strictPort --open",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .js,.jsx",
+    "lint": "eslint \"src/**/*.{js,jsx}\" \"*.mjs\"",
     "format": "prettier . --write"
   },
   "dependencies": {
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-router-dom": "^7.6.0"
   },
   "devDependencies": {
-    "vite": "^5.0.0"
+    "vite": "^8.0.10"
   }
 }

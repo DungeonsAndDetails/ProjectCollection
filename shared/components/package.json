@@ -2,18 +2,39 @@
   "name": "@projectcollection/component-lib",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "22.x"
   },
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "scripts": {
     "build": "echo \"Add a build step (rollup/tsc) for production\"",
     "lint": "eslint . --ext .js,.jsx",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build -o storybook-static"
   },
   "peerDependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@projectcollection/config": "0.1.0",
+    "@storybook/react-vite": "^10.5.3",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^6.0.3",
+    "@vitest/coverage-v8": "^4.1.10",
+    "jsdom": "^29.1.1",
+    "storybook": "^10.5.3",
+    "vitest": "^4.1.10"
   }
 }
