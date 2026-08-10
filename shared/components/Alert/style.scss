@@ -23,25 +23,25 @@
 }
 
 .pc-alert--info {
-  background: #e3f0fb;
-  border-color: #b6d7f2;
-  color: #17466f;
+  background: var(--pc-theme-info-bg, #e3f0fb);
+  border-color: color-mix(in srgb, var(--pc-theme-info-text, #17466f) 35%, transparent);
+  color: var(--pc-theme-info-text, #17466f);
 }
 
 .pc-alert--success {
-  background: #d4f4dd;
-  border-color: #a9e5bb;
-  color: #1e6b3a;
+  background: var(--pc-theme-success-bg, #d4f4dd);
+  border-color: color-mix(in srgb, var(--pc-theme-success-text, #1e6b3a) 35%, transparent);
+  color: var(--pc-theme-success-text, #1e6b3a);
 }
 
 .pc-alert--warning {
-  background: #fdecc8;
-  border-color: #f8d484;
-  color: #8a5a00;
+  background: var(--pc-theme-warning-bg, #fdecc8);
+  border-color: color-mix(in srgb, var(--pc-theme-warning-text, #8a5a00) 35%, transparent);
+  color: var(--pc-theme-warning-text, #8a5a00);
 }
 
 .pc-alert--danger {
-  background: #fbdada;
-  border-color: #f3b0af;
-  color: #97201f;
+  background: var(--pc-theme-danger-bg, #fbdada);
+  border-color: color-mix(in srgb, var(--pc-theme-danger-text, #97201f) 35%, transparent);
+  color: var(--pc-theme-danger-text, #97201f);
 }

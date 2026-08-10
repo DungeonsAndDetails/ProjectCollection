@@ -7,21 +7,21 @@
 }
 
 .pc-badge--neutral {
-  background: #e0e0e0;
-  color: #333333;
+  background: var(--pc-theme-surface-alt, #e0e0e0);
+  color: var(--pc-theme-text, #333333);
 }
 
 .pc-badge--success {
-  background: #d4f4dd;
-  color: #1e6b3a;
+  background: var(--pc-theme-success-bg, #d4f4dd);
+  color: var(--pc-theme-success-text, #1e6b3a);
 }
 
 .pc-badge--warning {
-  background: #fdecc8;
-  color: #8a5a00;
+  background: var(--pc-theme-warning-bg, #fdecc8);
+  color: var(--pc-theme-warning-text, #8a5a00);
 }
 
 .pc-badge--danger {
-  background: #fbdada;
-  color: #97201f;
+  background: var(--pc-theme-danger-bg, #fbdada);
+  color: var(--pc-theme-danger-text, #97201f);
 }

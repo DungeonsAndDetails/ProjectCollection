@@ -1,8 +1,8 @@
 .pc-spinner {
   display: inline-block;
   border-radius: 50%;
-  border: 3px solid #d8d8d8;
-  border-top-color: #1f8697;
+  border: 3px solid var(--pc-theme-border, #d8d8d8);
+  border-top-color: var(--pc-theme-accent-start, #1f8697);
   animation: pc-spinner-spin 0.7s linear infinite;
 }
 

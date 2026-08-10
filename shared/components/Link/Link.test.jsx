@@ -52,4 +52,20 @@ describe("Link", () => {
     expect(link).toHaveClass("pc-link");
     expect(link).toHaveClass("extra-class");
   });
+
+  it("defaults to the text variant", () => {
+    render(<Link href="/about">About</Link>);
+
+    expect(screen.getByRole("link", { name: "About" })).toHaveClass("pc-link--text");
+  });
+
+  it("allows overriding the variant", () => {
+    render(
+      <Link href="/about" variant="button">
+        About
+      </Link>,
+    );
+
+    expect(screen.getByRole("link", { name: "About" })).toHaveClass("pc-link--button");
+  });
 });

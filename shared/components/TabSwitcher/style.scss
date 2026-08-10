@@ -1,0 +1,41 @@
+.pc-tab-switcher {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px;
+  border-radius: 999px;
+  background: var(--pc-theme-surface-alt, #eef1f3);
+  border: 1px solid var(--pc-theme-border, #d8dde1);
+}
+
+.pc-tab-switcher-tab {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--pc-theme-text, #1a1a1a);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.pc-tab-switcher-tab:hover {
+  transform: translateY(-1px);
+}
+
+.pc-tab-switcher-tab.active {
+  background: linear-gradient(
+    135deg,
+    var(--pc-theme-accent-start, #1f8697) 0%,
+    var(--pc-theme-accent-end, #e9a44e) 100%
+  );
+  color: var(--pc-theme-button-text, #ffffff);
+}
+
+@media (max-width: 780px) {
+  .pc-tab-switcher {
+    width: 100%;
+  }
+}

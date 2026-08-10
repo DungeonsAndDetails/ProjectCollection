@@ -1,9 +1,31 @@
 .pc-link {
-  color: #1f8697;
+  cursor: pointer;
+}
+
+.pc-link--text {
+  color: var(--pc-theme-accent-start, #1f8697);
   text-decoration: underline;
   text-underline-offset: 2px;
 
   &:hover {
-    color: #155a67;
+    color: var(--pc-theme-accent-end, #155a67);
+  }
+}
+
+.pc-link--button {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 10px 16px;
+  text-decoration: none;
+  background: linear-gradient(
+    135deg,
+    var(--pc-theme-accent-start, #1f8697) 0%,
+    var(--pc-theme-accent-end, #e9a44e) 100%
+  );
+  color: var(--pc-theme-button-text, #ffffff);
+  transition: transform 160ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
   }
 }

@@ -1,8 +1,9 @@
 .pc-card {
   border-radius: 12px;
   padding: 20px;
-  border: 1px solid #e0e0e0;
-  background: #ffffff;
+  border: 1px solid var(--pc-theme-border, #e0e0e0);
+  background: var(--pc-theme-surface, #ffffff);
+  color: var(--pc-theme-text, #1a1a1a);
 }
 
 .pc-card-title {

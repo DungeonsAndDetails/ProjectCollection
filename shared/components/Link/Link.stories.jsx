@@ -8,6 +8,12 @@ const meta = {
     children: "Visit the docs",
     href: "/docs",
   },
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["text", "button"],
+    },
+  },
 };
 
 export default meta;
@@ -25,5 +31,12 @@ export const ExternalLink = {
 export const CustomClassName = {
   args: {
     className: "extra-class",
+  },
+};
+
+export const ButtonVariant = {
+  args: {
+    children: "Open standalone",
+    variant: "button",
   },
 };

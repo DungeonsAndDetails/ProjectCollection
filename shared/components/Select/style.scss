@@ -1,0 +1,13 @@
+.pc-select {
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: 1px solid var(--pc-theme-input-border, #cccccc);
+  background: var(--pc-theme-input-surface, #ffffff);
+  color: var(--pc-theme-input-text, #1a1a1a);
+  font: inherit;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

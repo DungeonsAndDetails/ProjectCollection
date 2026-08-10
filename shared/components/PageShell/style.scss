@@ -1,0 +1,43 @@
+.pc-page-shell {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: var(--pc-theme-text, #18242e);
+}
+
+.pc-page-shell-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      var(--pc-theme-backdrop-highlight, rgba(250, 196, 89, 0.45)),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      var(--pc-theme-backdrop-wash, rgba(15, 133, 177, 0.35)),
+      transparent 26%
+    ),
+    linear-gradient(
+      135deg,
+      var(--pc-theme-background, #f5efe2) 0%,
+      var(--pc-theme-background-alt, #dfe9ec) 48%,
+      var(--pc-theme-frame, #f8fbfc) 100%
+    );
+}
+
+.pc-page-shell-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding-top: 124px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 780px) {
+  .pc-page-shell-frame {
+    padding-top: 176px;
+  }
+}

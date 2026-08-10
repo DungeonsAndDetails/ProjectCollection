@@ -6,6 +6,29 @@ const colorModeLabels = {
   dark: "Dark",
 };
 
+const statusTokensByMode = {
+  light: {
+    successBg: "#d4f4dd",
+    successText: "#1e6b3a",
+    warningBg: "#fdecc8",
+    warningText: "#8a5a00",
+    dangerBg: "#fbdada",
+    dangerText: "#97201f",
+    infoBg: "#e3f0fb",
+    infoText: "#17466f",
+  },
+  dark: {
+    successBg: "rgba(46, 160, 91, 0.18)",
+    successText: "#7ee2a8",
+    warningBg: "rgba(241, 179, 92, 0.18)",
+    warningText: "#f1b35c",
+    dangerBg: "rgba(224, 79, 79, 0.2)",
+    dangerText: "#f29a9a",
+    infoBg: "rgba(68, 183, 202, 0.18)",
+    infoText: "#8fd6e6",
+  },
+};
+
 const themesCatalog = {
   daylight: {
     label: "Daylight",
@@ -37,6 +60,7 @@ const themesCatalog = {
           shadowStrong: "rgba(39, 53, 66, 0.18)",
           frame: "#f8fbfc",
           iframeBackground: "#ffffff",
+          ...statusTokensByMode.light,
         },
       },
       dark: {
@@ -65,6 +89,7 @@ const themesCatalog = {
           shadowStrong: "rgba(2, 8, 15, 0.36)",
           frame: "#304556",
           iframeBackground: "#091118",
+          ...statusTokensByMode.dark,
         },
       },
     },
@@ -99,6 +124,7 @@ const themesCatalog = {
           shadowStrong: "rgba(25, 37, 48, 0.18)",
           frame: "#f4f7fa",
           iframeBackground: "#ffffff",
+          ...statusTokensByMode.light,
         },
       },
       dark: {
@@ -127,22 +153,19 @@ const themesCatalog = {
           shadowStrong: "rgba(2, 8, 15, 0.36)",
           frame: "#304556",
           iframeBackground: "#091118",
+          ...statusTokensByMode.dark,
         },
       },
     },
   },
 };
 
-const toKebabCase = (value) =>
-  value.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+const toKebabCase = (value) => value.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 
 export const themes = themesCatalog;
 export { defaultColorMode, defaultThemeKey };
 
-export const resolveThemeState = (
-  themeKey = defaultThemeKey,
-  colorMode = defaultColorMode,
-) => {
+export const resolveThemeState = (themeKey = defaultThemeKey, colorMode = defaultColorMode) => {
   const resolvedThemeKey = themesCatalog[themeKey] ? themeKey : defaultThemeKey;
   const resolvedColorMode = colorMode === "dark" ? "dark" : "light";
   const theme = themesCatalog[resolvedThemeKey];
