@@ -1,0 +1,47 @@
+.pc-alert {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+}
+
+.pc-alert-body {
+  margin: 0;
+}
+
+.pc-alert-dismiss {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: inherit;
+  padding: 0;
+}
+
+.pc-alert--info {
+  background: var(--pc-theme-info-bg, #e3f0fb);
+  border-color: color-mix(in srgb, var(--pc-theme-info-text, #17466f) 35%, transparent);
+  color: var(--pc-theme-info-text, #17466f);
+}
+
+.pc-alert--success {
+  background: var(--pc-theme-success-bg, #d4f4dd);
+  border-color: color-mix(in srgb, var(--pc-theme-success-text, #1e6b3a) 35%, transparent);
+  color: var(--pc-theme-success-text, #1e6b3a);
+}
+
+.pc-alert--warning {
+  background: var(--pc-theme-warning-bg, #fdecc8);
+  border-color: color-mix(in srgb, var(--pc-theme-warning-text, #8a5a00) 35%, transparent);
+  color: var(--pc-theme-warning-text, #8a5a00);
+}
+
+.pc-alert--danger {
+  background: var(--pc-theme-danger-bg, #fbdada);
+  border-color: color-mix(in srgb, var(--pc-theme-danger-text, #97201f) 35%, transparent);
+  color: var(--pc-theme-danger-text, #97201f);
+}

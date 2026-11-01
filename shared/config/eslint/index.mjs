@@ -1,14 +1,27 @@
 import js from '@eslint/js';
-import globals from 'globals';
+import importPlugin from 'eslint-plugin-import';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import globals from 'globals';
 
 const unusedVarsRule = [
   'warn',
   {
     argsIgnorePattern: '^_',
     varsIgnorePattern: '^_',
+  },
+];
+
+const importOrderRule = [
+  'warn',
+  {
+    groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+    'newlines-between': 'never',
+    alphabetize: {
+      order: 'asc',
+      caseInsensitive: true,
+    },
   },
 ];
 
@@ -23,6 +36,7 @@ const commonRules = {
       destructuring: 'all',
     },
   ],
+  'import/order': importOrderRule,
 };
 
 const config = [
@@ -48,6 +62,7 @@ const config = [
       },
     },
     plugins: {
+      import: importPlugin,
       react,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
@@ -77,10 +92,13 @@ const config = [
     files: ['apps/*/backend/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
-      sourceType: 'commonjs',
+      sourceType: 'module',
       globals: {
         ...globals.node,
       },
+    },
+    plugins: {
+      import: importPlugin,
     },
     rules: {
       ...commonRules,
@@ -96,6 +114,26 @@ const config = [
         ...globals.node,
       },
     },
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
+    },
+  },
+  {
+    files: ['e2e/**/*.js', 'playwright.config.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       ...commonRules,
       'no-unused-vars': unusedVarsRule,
@@ -109,6 +147,9 @@ const config = [
       globals: {
         ...globals.node,
       },
+    },
+    plugins: {
+      import: importPlugin,
     },
     rules: {
       ...commonRules,

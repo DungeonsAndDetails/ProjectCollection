@@ -1,13 +1,22 @@
-import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
-import { microfrontends } from "../../features/shell/data/microfrontends";
 import {
+  AppHeader,
   defaultColorMode,
   defaultThemeKey,
+  PageShell,
+  RadioGroup,
   resolveThemeState,
-} from "../../features/shell/data/themes";
+  TabSwitcher,
+} from "@projectcollection/component-lib";
+import { useEffect, useMemo, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { microfrontends } from "../../features/shell/data/microfrontends";
 
 const colorModeStorageKey = "portal-color-mode";
+
+const colorModeOptions = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+];
 
 const readPreference = (storageKey, fallbackValue) => {
   if (typeof window === "undefined") {
@@ -25,72 +34,35 @@ const ShellLayout = () => {
   const theme = resolveThemeState(defaultThemeKey, colorMode);
   const activeApp =
     microfrontends.find((app) => app.key === activeAppKey) ?? microfrontends[0];
+  const tabItems = useMemo(
+    () => microfrontends.map((app) => ({ key: app.key, label: app.name })),
+    [],
+  );
 
   useEffect(() => {
     window.localStorage.setItem(colorModeStorageKey, colorMode);
   }, [colorMode]);
 
-  const toggleColorMode = () => {
-    setColorMode((currentMode) =>
-      currentMode === "dark" ? "light" : "dark",
-    );
-  };
-
   return (
-    <div
-      className={`portal-shell ${theme.shellClass}`}
-      data-theme-key={theme.themeKey}
-      data-color-mode={theme.colorMode}
-      style={theme.cssVars}
-    >
-      <div className="portal-backdrop" />
-      <div className="portal-frame">
-        <header className="shell-header">
-          <div className="shell-header-main">
-            <div className="shell-header-leading">
-              <button
-                type="button"
-                className="mode-toggle"
-                aria-pressed={colorMode === "dark"}
-                onClick={toggleColorMode}
-              >
-                {colorMode === "dark" ? "Dark mode on" : "Dark mode off"}
-              </button>
+    <PageShell theme={theme}>
+      <AppHeader kicker="ProjectCollection" title="Portal shell">
+        <RadioGroup
+          ariaLabel="Color mode"
+          name="color-mode"
+          onChange={setColorMode}
+          options={colorModeOptions}
+          value={colorMode}
+        />
+        <TabSwitcher
+          activeKey={activeAppKey}
+          ariaLabel="App preview switcher"
+          items={tabItems}
+          onChange={setActiveAppKey}
+        />
+      </AppHeader>
 
-              <div>
-                <p className="shell-kicker">ProjectCollection</p>
-                <h1 className="shell-title">Portal shell</h1>
-              </div>
-            </div>
-
-            <div
-              className="shell-demo-switcher"
-              role="tablist"
-              aria-label="App preview switcher"
-            >
-              {microfrontends.map((app) => (
-                <button
-                  key={app.key}
-                  type="button"
-                  role="tab"
-                  aria-selected={app.key === activeApp.key}
-                  className={
-                    app.key === activeApp.key
-                      ? "shell-demo-chip active"
-                      : "shell-demo-chip"
-                  }
-                  onClick={() => setActiveAppKey(app.key)}
-                >
-                  {app.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        </header>
-
-        <Outlet context={{ activeApp, theme }} />
-      </div>
-    </div>
+      <Outlet context={{ activeApp, theme }} />
+    </PageShell>
   );
 };
 

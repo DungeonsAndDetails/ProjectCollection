@@ -1,0 +1,27 @@
+.pc-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.pc-badge--neutral {
+  background: var(--pc-theme-surface-alt, #e0e0e0);
+  color: var(--pc-theme-text, #333333);
+}
+
+.pc-badge--success {
+  background: var(--pc-theme-success-bg, #d4f4dd);
+  color: var(--pc-theme-success-text, #1e6b3a);
+}
+
+.pc-badge--warning {
+  background: var(--pc-theme-warning-bg, #fdecc8);
+  color: var(--pc-theme-warning-text, #8a5a00);
+}
+
+.pc-badge--danger {
+  background: var(--pc-theme-danger-bg, #fbdada);
+  color: var(--pc-theme-danger-text, #97201f);
+}

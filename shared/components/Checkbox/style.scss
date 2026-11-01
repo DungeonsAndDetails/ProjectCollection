@@ -1,0 +1,21 @@
+.pc-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.pc-checkbox-input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--pc-theme-accent-start, #1f8697);
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.pc-checkbox-label {
+  color: var(--pc-theme-text, #1a1a1a);
+}

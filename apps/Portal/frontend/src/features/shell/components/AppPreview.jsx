@@ -1,24 +1,22 @@
+import { Link, Panel } from "@projectcollection/component-lib";
+import PropTypes from "prop-types";
+
 const AppPreview = ({ activeApp }) => {
+  const actions = (
+    <>
+      <Link href={activeApp.frontendUrl} target="_blank" variant="button">
+        Open standalone
+      </Link>
+      {activeApp.backendUrl ? (
+        <Link href={activeApp.backendUrl} target="_blank" variant="button">
+          API health
+        </Link>
+      ) : null}
+    </>
+  );
+
   return (
-    <section className="card app-preview">
-      <div className="card-header app-preview-header">
-        <div>
-          <span className="tag">Live preview</span>
-          <h2>{activeApp.name}</h2>
-        </div>
-
-        <div className="app-links">
-          <a href={activeApp.frontendUrl} target="_blank" rel="noreferrer">
-            Open standalone
-          </a>
-          {activeApp.backendUrl ? (
-            <a href={activeApp.backendUrl} target="_blank" rel="noreferrer">
-              API health
-            </a>
-          ) : null}
-        </div>
-      </div>
-
+    <Panel tag="Live preview" title={activeApp.name} actions={actions}>
       <div className="app-preview-frame-shell">
         <iframe
           className="app-preview-frame"
@@ -26,8 +24,16 @@ const AppPreview = ({ activeApp }) => {
           title={`${activeApp.name} preview`}
         />
       </div>
-    </section>
+    </Panel>
   );
+};
+
+AppPreview.propTypes = {
+  activeApp: PropTypes.shape({
+    backendUrl: PropTypes.string,
+    frontendUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default AppPreview;

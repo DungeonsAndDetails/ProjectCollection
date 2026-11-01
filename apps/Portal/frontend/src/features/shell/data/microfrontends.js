@@ -1,8 +1,8 @@
 export const microfrontends = [
   {
-    key: 'project1',
-    name: 'Project 1',
-    description: 'Reserved workspace. Not yet scoped.',
+    key: 'pilot',
+    name: 'Pilot',
+    description: 'Experimental workspace for exploring ideas, components, and utilities.',
     frontendUrl: 'http://localhost:5173',
     backendUrl: 'http://localhost:5100/api/health',
   },
