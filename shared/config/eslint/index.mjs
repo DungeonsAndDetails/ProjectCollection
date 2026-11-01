@@ -123,6 +123,23 @@ const config = [
     },
   },
   {
+    files: ['e2e/**/*.js', 'playwright.config.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      ...commonRules,
+      'no-unused-vars': unusedVarsRule,
+    },
+  },
+  {
     files: ['shared/config/**/*.cjs', 'prettier.config.cjs'],
     languageOptions: {
       ecmaVersion: 'latest',
